@@ -1,0 +1,20 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: cloud-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        #        server-addr: 127.0.0.1:8848 # 配置中心地址
+        #        prefix: service_config
+        #        file-extension: yml
+        #        group: DEFAULT_GROUP # public业务组
+        #        namespace: public
+        server-addr: 127.0.0.1:8848 # 配置中心地址
+        prefix: service_config
+        file-extension: yml
+        group: DEFAULT_GROUP # dev业务组
+        namespace: e8f6e837-dbda-4d79-9c1f-c8c5ed18c038

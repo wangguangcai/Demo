@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mysz.cloud.dao.ConsumerDas">
+    <resultMap id="BaseResultMap" type="com.mysz.cloud.entities.Consumer">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="age" jdbcType="INTEGER" property="age" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        id,name,age
+    </sql>
+    <insert id="insert" parameterType="com.mysz.cloud.entities.Consumer">
+        insert into consumer (id,name,age)
+        values (#{id},#{name},#{age})
+    </insert>
+    <select id="getById"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from consumer
+        where id = #{id}
+    </select>
+
+</mapper>

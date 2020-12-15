@@ -1,0 +1,26 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: cloud-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848 # 配置中心地址
+        file-extension: yml
+        prefix: service_config
+        group: DEFAULT_GROUP # public业务组
+
+
+#feign客户端配置
+feign:
+  hystrix:
+    #设置feign开启hystrix(服务保护）
+    enabled: true
+#ribbon配置
+ribbon:
+  #ribbon的超时时间要大于hystrix的超时时间，否则 hystrix自定义的超时时间毫无意义
+  ReadTimeout: 5000
+  ConnectTimeout: 5000

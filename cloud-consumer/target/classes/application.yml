@@ -1,0 +1,1 @@
+spring.cloud.stream.rocketmq.binder.name-server: localhost:9876
