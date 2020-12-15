@@ -1,13 +1,15 @@
 package com.mysz.cloud.mq.provider;
 
+import com.mysz.cloud.config.MqConfig;
 import com.mysz.cloud.constant.Constants;
 import com.mysz.cloud.utils.CommonResult;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.common.message.Message;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 /**
  * @version V1.0
@@ -15,26 +17,19 @@ import org.springframework.stereotype.Component;
  * @Description: Production
  * @Data: 2020/12/15 10:07
  **/
-@Component
+@Configuration
 @Slf4j
 public class Production {
+    @Resource
+    CommonProduction commonProduction;
     /**
      * 消息发送
      * @return
      */
-    public CommonResult<String> producer(){
-        try {
-            DefaultMQProducer producer = new DefaultMQProducer(Constants.ROCKETMQ_GROUP_NAME);
-            producer.setNamesrvAddr(Constants.MQ_NAMESRVADDR);
-            producer.start();
-            String body = "Hello, 老王";
-            Message message = new Message(Constants.TOPIC_NAME, Constants.TAG_NAME, body.getBytes());
-            producer.send(message);
-            producer.shutdown();
-            return new CommonResult<>(200,"success",null);
-        }catch (Exception e){
-            log.info("发送消息失败，原因：",e);
-            return new CommonResult<>(300,"error",e.toString());
-        }
+    public CommonResult<String> producer(String message){
+        CommonResult<String> commonResult=commonProduction.sendMessage(Constants.ROCKETMQ_SEND_GROUP_NAME,
+                MqConfig.MQ_NAMESRVADDR,Constants.TOPIC_NAME,Constants.TAG_NAME,message);
+        log.info("发送消息结果：{}",commonResult);
+        return commonResult;
     }
 }

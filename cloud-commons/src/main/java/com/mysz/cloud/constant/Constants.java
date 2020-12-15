@@ -14,14 +14,14 @@ public interface Constants {
     String PROVIDER_FEIGN_NAME="cloud-provider";
 
     /**
-     *mq地址
+     * mq发送消息分组名
      */
-    String MQ_NAMESRVADDR="localhost:9876";
+    String ROCKETMQ_SEND_GROUP_NAME="MYSZ_SEND_GROUP";
 
     /**
-     * mq分组名
+     * mq消费消息分组名
      */
-    String ROCKETMQ_GROUP_NAME="MYSZ_GROUP";
+    String ROCKETMQ_CONSUMER_GROUP_NAME="MYSZ_CONSUMER_GROUP";
 
     /**
      * topic主题名
