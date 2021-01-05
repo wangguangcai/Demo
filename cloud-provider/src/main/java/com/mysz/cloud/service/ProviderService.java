@@ -1,6 +1,8 @@
 package com.mysz.cloud.service;
 
+import com.mysz.cloud.dto.BaseDto;
 import com.mysz.cloud.entities.Provider;
+import com.mysz.cloud.utils.CommonResult;
 import org.apache.ibatis.annotations.Param;
 
 /**

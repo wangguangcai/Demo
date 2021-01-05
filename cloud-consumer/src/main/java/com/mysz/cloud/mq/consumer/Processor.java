@@ -1,7 +1,7 @@
 package com.mysz.cloud.mq.consumer;
 
 import com.alibaba.fastjson.JSON;
-import com.mysz.cloud.MqConfig;
+import com.mysz.cloud.config.MqConfig;
 import com.mysz.cloud.constant.Constants;
 import com.mysz.cloud.entities.Consumer;
 import com.mysz.cloud.entities.Provider;

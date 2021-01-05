@@ -1,4 +1,4 @@
-package com.mysz.cloud;
+package com.mysz.cloud.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -15,5 +15,5 @@ public class MqConfig {
      *mq地址
      */
     @Value("${apache.rocketmq.namesrvAddr}")
-    public static final String MQ_NAMESRVADDR="localhost:9876";
+    public static String MQ_NAMESRVADDR;
 }

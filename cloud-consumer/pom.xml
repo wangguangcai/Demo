@@ -89,6 +89,11 @@
             <artifactId>rocketmq-client</artifactId>
             <version>4.7.1</version>
         </dependency>
+        <!-- spring-cloud-starter-gateway -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
 
     </dependencies>
 
